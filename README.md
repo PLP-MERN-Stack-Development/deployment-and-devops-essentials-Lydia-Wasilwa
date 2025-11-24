@@ -1,71 +1,171 @@
-# Deployment and DevOps for MERN Applications
+# Blog Application
 
-This assignment focuses on deploying a full MERN stack application to production, implementing CI/CD pipelines, and setting up monitoring for your application.
+A full‑stack Blog Application built with **MongoDB, Express.js, React.js, and Node.js**, featuring CI/CD deployment, monitoring setup, and automated build workflows.
 
-## Assignment Overview
+---
 
-You will:
-1. Prepare your MERN application for production deployment
-2. Deploy the backend to a cloud platform
-3. Deploy the frontend to a static hosting service
-4. Set up CI/CD pipelines with GitHub Actions
-5. Implement monitoring and maintenance strategies
+## Live Deployment
 
-## Getting Started
+### **Frontend (React)**
+URL: *[https://blog-app-xi-amber.vercel.app/]*
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week7-Assignment.md` file
-4. Use the provided templates and configuration files as a starting point
+### **Backend API (Node/Express)**
+URL: *[https://blog-app-f4j8.onrender.com]*
 
-## Files Included
+---
 
-- `Week7-Assignment.md`: Detailed assignment instructions
-- `.github/workflows/`: GitHub Actions workflow templates
-- `deployment/`: Deployment configuration files and scripts
-- `.env.example`: Example environment variable templates
-- `monitoring/`: Monitoring configuration examples
+## Project Structure
 
-## Requirements
+```
+blog-app/
+├── client/          # React frontend
+├── server/          # Node/Express backend
+├── .github/workflows # CI/CD pipeline config
+└── README.md
+```
 
-- A completed MERN stack application from previous weeks
-- Accounts on the following services:
-  - GitHub
-  - MongoDB Atlas
-  - Render, Railway, or Heroku (for backend)
-  - Vercel, Netlify, or GitHub Pages (for frontend)
-- Basic understanding of CI/CD concepts
+---
 
-## Deployment Platforms
+## Installation & Local Development
 
-### Backend Deployment Options
-- **Render**: Easy to use, free tier available
-- **Railway**: Developer-friendly, generous free tier
-- **Heroku**: Well-established, extensive documentation
+### **1. Clone the Repository**
 
-### Frontend Deployment Options
-- **Vercel**: Optimized for React apps, easy integration
-- **Netlify**: Great for static sites, good CI/CD
-- **GitHub Pages**: Free, integrated with GitHub
+### **2. Install Dependencies**
+
+#### Backend
+```bash
+cd server
+npm install
+```
+
+#### Frontend
+```bash
+cd client
+npm install
+```
+
+### **3. Environment Variables**
+
+Create `.env` files:
+
+#### Server `.env`
+```
+PORT=5000
+MONGO_URI=mongodb_atlas_uri
+JWT_SECRET=your_secret
+```
+
+#### Client `.env`
+```
+VITE_API_URL=backend_deployed_url
+```
+
+---
+
+## Running the App Locally
+
+### Backend
+```bash
+cd server
+npm run dev
+```
+
+### Frontend
+```bash
+cd client
+npm run dev
+```
+
+---
+
+## Deployment Instructions
+
+### **Frontend Deployment using Vercel**
+
+1. Run production build:
+```bash
+npm run build
+```
+2. Deploy the generated `dist/` folder.
+3. Set environment variable:  
+   `VITE_API_URL=https://backend-url/api`
+
+---
+
+### **Backend Deployment using Render**
+
+1. Push the server folder to the hosting platform.
+2. Add environment variables (PORT, MONGO_URI, JWT_SECRET).
+3. Ensure correct build/start commands:
+```
+Build Command: npm install
+Start Command: npm start
+```
+
+---
+
+## 🔄 CI/CD Pipeline (GitHub Actions)
+
+CI/CD runs automatically on:
+
+- **Push to main**
+- **Pull requests**
+- **Tag releases**
+
+### CI/CD Pipeline Screenshot  
+
+![CI/CD Screenshot 1](screenshots/cicd_1.png)  
+![CI/CD Screenshot 2](screenshots/cicd_2.png)
+
+---
+
+## Monitoring Documentation
+
+### **1. Uptime Monitoring (UptimeRobot / BetterStack)**
+- Tracks response time
+- Alerts via email/SMS
+- Automatic downtime logs
+
+### Example Screenshot  
+![Monitoring Screenshot](screenshots/monitoring.png)
+
+### **2. Server Logs (PM2 / Render Dashboard)**
+- Auto‑restart on crash
+- CPU and RAM usage tracking
+- HTTP request logs
+
+### **3. Error Tracking (Sentry)**
+- Real‑time error alerts
+- Stack trace logging
+
+---
+
+## Testing
+
+### Backend Tests
+```bash
+cd server
+npm test
+```
+
+### Frontend Tests
+```bash
+cd client
+npm test
+```
+
+---
+
+## License
+MIT License (2025)
+
+---
 
 ## CI/CD Pipeline
-
-The assignment includes templates for setting up GitHub Actions workflows:
 - `frontend-ci.yml`: Tests and builds the React application
 - `backend-ci.yml`: Tests the Express.js backend
 - `frontend-cd.yml`: Deploys the frontend to your chosen platform
 - `backend-cd.yml`: Deploys the backend to your chosen platform
-
-## Submission
-
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
-
-1. Complete all deployment tasks
-2. Set up CI/CD pipelines with GitHub Actions
-3. Deploy both frontend and backend to production
-4. Document your deployment process in the README.md
-5. Include screenshots of your CI/CD pipeline in action
-6. Add URLs to your deployed applications
 
 ## Resources
 
